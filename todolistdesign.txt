@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ToDo List Add elements</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    li:last-child {
+        border-bottom: none;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>To-Do List</h1>
+    <form id="todo-form">
+        <input type="text" id="todo-input" placeholder="Add new item">
+        <input type="submit" value="Add">
+    </form>
+    <ul id="todo-list">
+    </ul>
+</div>
+
+<script>
+    const todoForm = document.getElementById('todo-form');
+    const todoInput = document.getElementById('todo-input');
+    const todoList = document.getElementById('todo-list');
+
+    todoForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (todoInput.value.trim() !== '') {
+            const todoItem = document.createElement('li');
+            todoItem.textContent = todoInput.value.trim();
+            todoList.appendChild(todoItem);
+            todoInput.value = '';
+        }
+    });
+</script>
+
+</body>
+</html>
